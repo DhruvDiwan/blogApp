@@ -37,6 +37,8 @@ class BlogTests(TestCase):
 	def test_blog_detail_view(self):
 		response = self.client.get('/blog/1/')
 		no_response = self.client.get('/blog/1000000/')
+		response_ = self.client.get(reverse('blog_detail' , args=['1'])) # added extra
+		self.assertEqual(response.status_code , response_.status_code)
 		self.assertEqual(response.status_code , 200)
 		self.assertEqual(no_response.status_code , 404)
 		self.assertContains(response , 'blog title')
