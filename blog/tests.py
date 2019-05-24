@@ -44,3 +44,5 @@ class BlogTests(TestCase):
 		self.assertContains(response , 'blog title')
 		self.assertTemplateUsed(response , 'blog_detail.html')
 
+	def test_get_absolute_url(self):
+		self.assertEqual(self.blog.get_absolute_url() , 'blog/1//')
