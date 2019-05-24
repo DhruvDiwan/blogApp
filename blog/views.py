@@ -1,6 +1,6 @@
 from .models import Blog
 from django.views.generic import ListView , DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView , UpdateView
 
 class BlogListView(ListView):
 	model = Blog
@@ -15,3 +15,8 @@ class BlogCreateView(CreateView):
 	model = Blog
 	template_name = 'blog_new.html'
 	fields = '__all__'
+
+class BlogUpdateView(UpdateView):
+	model = Blog
+	template_name = 'blog_edit.html'
+	fields = ['title' , 'body']
