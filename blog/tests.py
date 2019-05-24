@@ -45,7 +45,7 @@ class BlogTests(TestCase):
 		self.assertTemplateUsed(response , 'blog_detail.html')
 
 	def test_get_absolute_url(self):
-		self.assertEqual(self.blog.get_absolute_url() , 'blog/1/')
+		self.assertEqual(self.blog.get_absolute_url() , '/blog/1/')
 
 	def test_blog_create_view(self):
 		response = self.client.post(reverse('blog_new'), {
